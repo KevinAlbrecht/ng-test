@@ -4,6 +4,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { ApiDataService } from './api-data.service';
+import { Data } from '../models/data.model';
 
 @Injectable()
 export class DataService {
@@ -11,15 +12,6 @@ export class DataService {
   constructor(private apiService: ApiDataService) { }
 
   getDatas(): Observable<Data[]> {
-    return this.apiService.getApiDatas()
-      .catch(err => {
-        throw Observable.of(err);
-      });
+    return this.apiService.getApiDatas();
   }
-}
-
-export interface Data {
-  id: number;
-  title: string;
-  description: string;
 }
