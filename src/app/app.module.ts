@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RoundPipe } from './pipes/round.pipe';
 import { DataComponent } from './data/data.component';
+import { DataService } from './services/data.service';
+import { ApiDataService } from './services/api-data.service';
 
 
 @NgModule({
@@ -16,7 +18,7 @@ import { DataComponent } from './data/data.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [DataService, ApiDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
