@@ -23,11 +23,7 @@ describe('DataComponent', () => {
   it('should create the component', () => {
     expect(component).toBeTruthy();
   });
-  it('should get shortened txt from component', () => {
-    component.text = songName;
-    expect(component.shortText).toBeTruthy();
-    expect(component.shortText.length).toBe(3);
-  });
+
   it('should emit the full text from component', () => {
     spyOn(component.selectedItem, 'emit').and.callThrough();
     component.text = songName;

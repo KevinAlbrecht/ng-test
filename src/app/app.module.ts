@@ -19,6 +19,6 @@ import { ApiDataService } from './services/api-data.service';
     BrowserModule
   ],
   providers: [DataService, ApiDataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, DataComponent]
 })
 export class AppModule { }

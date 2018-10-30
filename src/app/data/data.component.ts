@@ -15,6 +15,9 @@ export class DataComponent implements OnInit {
     return this.text.substr(0, 3);
   }
 
+  @Input()
+  select
+
   @Output()
   selectedItem = new EventEmitter();
 
