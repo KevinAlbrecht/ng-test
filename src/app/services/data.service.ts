@@ -9,9 +9,9 @@ import { Data } from '../models/data.model';
 @Injectable()
 export class DataService {
 
-  constructor(private apiService: ApiDataService) { }
+	constructor(private apiService: ApiDataService) { }
 
-  getDatas(): Observable<Data[]> {
-    return this.apiService.getApiDatas();
-  }
+	getDatas(): Observable<Data[]> {
+		return this.apiService.getApiDatas();
+	}
 }

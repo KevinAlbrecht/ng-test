@@ -4,20 +4,20 @@ import { Data } from './models/data.model';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
-  datas$: Observable<Data[]>;
+	title = 'app';
+	datas$: Observable<Data[]>;
 
-  constructor(private dataService: DataService) {
-  }
+	constructor(private dataService: DataService) {
+	}
 
-  ngOnInit() {
-    this.datas$ = this.dataService.getDatas();
-  }
+	ngOnInit() {
+		this.datas$ = this.dataService.getDatas();
+	}
 
-  select(id: number) { }
+	select(id: number) { }
 }

@@ -10,15 +10,15 @@ import { ApiDataService } from './services/api-data.service';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DataComponent,
-    RoundPipe
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [DataService, ApiDataService],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		DataComponent,
+		RoundPipe
+	],
+	imports: [
+		BrowserModule
+	],
+	providers: [DataService, ApiDataService],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
