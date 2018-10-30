@@ -7,5 +7,5 @@
 </div>
 <h2>Here are some links to help you start: </h2>
 <ul>
-  <!-- <li *ngFor="let data of datas$" (click)="select(data.id)">{{data.title}}</li> -->
+  <li *ngFor="let data of (datas$|async)" (click)="select(data.id)">{{data.title}}</li>
 </ul>
