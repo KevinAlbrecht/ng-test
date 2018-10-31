@@ -4,14 +4,18 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { ApiDataService } from './api-data.service';
-import { Data } from '../models/data.model';
+import { FullData, SimpleData } from '../models/data.model';
 
 @Injectable()
 export class DataService {
 
-  constructor(private apiService: ApiDataService) { }
+	constructor(private apiService: ApiDataService) { }
 
-  getDatas(): Observable<Data[]> {
-    return this.apiService.getApiDatas();
-  }
+	getDatas(): Observable<SimpleData[]> {
+		return this.apiService.getApiDatas();
+	}
+
+	getData(id: number): Observable<FullData> {
+		return this.apiService.getApiData(id);
+	}
 }

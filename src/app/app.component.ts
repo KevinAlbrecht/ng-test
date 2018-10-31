@@ -1,23 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './services/data.service';
-import { Data } from './models/data.model';
+import { FullData, SimpleData } from './models/data.model';
 import { Observable } from 'rxjs/Observable';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
-  datas$: Observable<Data[]>;
+	title = 'app';
+	datas$: Observable<SimpleData[]>;
+	selectedData: FullData;
 
-  constructor(private dataService: DataService) {
-  }
+	dataFormGroup: FormGroup;
+	constructor(private dataService: DataService, private fb: FormBuilder) {
+		this.dataFormGroup = this.fb.group({
+			dataValue: ['', Validators.required]
+		})
+	}
 
-  ngOnInit() {
-    this.datas$ = this.dataService.getDatas();
-  }
+	ngOnInit() {
+		this.datas$ = this.dataService.getDatas();
+		this.dataFormGroup.controls.dataValue.valueChanges
+			.switchMap(selectedId => this.dataService.getData(+selectedId))
+			.subscribe((value) => {
+				this.selectedData = value;
+			});
+	}
 
-  select(id: number) { }
+	select(id: number) { }
 }
