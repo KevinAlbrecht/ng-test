@@ -11,11 +11,13 @@ describe('AppComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [
+
 				AppComponent,
 				DataComponent
 			],
 			providers: [DataService, ApiDataService],
 			imports: [ReactiveFormsModule]
+
 		}).compileComponents();
 	}));
 
@@ -34,6 +36,7 @@ describe('AppComponent', () => {
 		title: 'three',
 		description: 'text3'
 	}];
+
 
 	const getApiDatasMock = (): Observable<FullData[]> => {
 		return of(fakeApiDatas);
@@ -77,6 +80,7 @@ describe('AppComponent', () => {
 			const fixture = TestBed.createComponent(AppComponent);
 			fixture.detectChanges();
 			const compiled = fixture.debugElement.nativeElement;
+
 
 			const lis = compiled.querySelectorAll('select option');
 			expect(lis.length).toBe(3);

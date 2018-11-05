@@ -17,6 +17,7 @@ import { ApiDataService } from './services/api-data.service';
 		RoundPipe
 	],
 	imports: [
+
 		BrowserModule,
 		ReactiveFormsModule
 	],

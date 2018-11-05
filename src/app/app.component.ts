@@ -12,6 +12,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class AppComponent implements OnInit {
 	title = 'app';
+
 	datas$: Observable<SimpleData[]>;
 	selectedData: FullData;
 
