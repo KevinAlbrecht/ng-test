@@ -15,11 +15,18 @@ export class AppComponent implements OnInit {
 	datas$: Observable<SimpleData[]>;
 	selectedData: FullData;
 
+	subGroup: FormGroup;
+
 	dataFormGroup: FormGroup;
 	constructor(private dataService: DataService, private fb: FormBuilder) {
 		this.dataFormGroup = this.fb.group({
-			dataValue: ['', Validators.required]
-		})
+			dataValue: ['', Validators.required],
+			subGroup: this.fb.group({
+				newDescription: ['', Validators.required]
+			})
+		});
+
+		this.subGroup = <FormGroup>this.dataFormGroup.get('subGroup');
 	}
 
 	ngOnInit() {
@@ -31,5 +38,7 @@ export class AppComponent implements OnInit {
 			});
 	}
 
-	select(id: number) { }
+	editData(newValue: string) {
+		console.log(newValue);
+	}
 }
