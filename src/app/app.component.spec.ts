@@ -4,14 +4,20 @@ import { DataService } from './services/data.service';
 import { ApiDataService } from './services/api-data.service';
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
-import { Data } from './models/data.model';
+import { FullData } from './models/data.model';
+import { DataComponent } from './components/data-component/data.component';
+import { ReactiveFormsModule } from '@angular/forms';
 describe('AppComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [
-				AppComponent
+
+				AppComponent,
+				DataComponent
 			],
-			providers: [DataService, ApiDataService]
+			providers: [DataService, ApiDataService],
+			imports: [ReactiveFormsModule]
+
 		}).compileComponents();
 	}));
 
@@ -31,7 +37,8 @@ describe('AppComponent', () => {
 		description: 'text3'
 	}];
 
-	const getApiDatasMock = (): Observable<Data[]> => {
+
+	const getApiDatasMock = (): Observable<FullData[]> => {
 		return of(fakeApiDatas);
 	};
 
@@ -74,7 +81,8 @@ describe('AppComponent', () => {
 			fixture.detectChanges();
 			const compiled = fixture.debugElement.nativeElement;
 
-			const lis = compiled.querySelectorAll('ul li');
+
+			const lis = compiled.querySelectorAll('select option');
 			expect(lis.length).toBe(3);
 
 			lis.forEach((li, i) => {

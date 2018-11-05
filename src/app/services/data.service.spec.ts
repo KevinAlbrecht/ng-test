@@ -20,9 +20,9 @@ describe('Services', () => {
 	let resolvedService: DataService;
 
 	const serviceDatas = [
-		{ id: 1, title: 'first item', description: 'this is the first item of datas' },
-		{ id: 2, title: 'Second item', description: 'this is the second item of datas' },
-		{ id: 999, title: 'n item', description: 'this is the n item of datas' }
+		{ id: 1, title: 'first item' },
+		{ id: 2, title: 'Second item' },
+		{ id: 999, title: 'n item' }
 	];
 
 	const errorTestData = new Error('no Datas');

@@ -1,0 +1,6 @@
+<div *ngIf="data">
+	<h2>Source:</h2>
+	<p>title:{{data?.title}}</p>
+	<p>description:{{data?.description}}</p>
+	<div [formGroup]="group"><input type="text" formControlName="newDescription" placeholder="{{data?.description}}"></div>
+</div>
