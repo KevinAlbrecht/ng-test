@@ -21,9 +21,6 @@ export class DataComponent implements OnInit {
 	@Input()
 	group: FormGroup;
 
-	@Output()
-	editedData = new EventEmitter();
-
 	ngOnInit() {
 
 	}

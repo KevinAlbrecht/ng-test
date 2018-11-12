@@ -7,7 +7,7 @@
 </div>
 <h2>Here are some links to help you start: </h2>
 
-<form [formGroup]="dataFormGroup" (ngSubmit)="editData">
+<form [formGroup]="dataFormGroup" (ngSubmit)="editData()">
 	<select formControlName="dataValue">
 		<option *ngFor="let data of (datas$|async)" [value]="data.id">{{data.title}}</option>
 	</select>

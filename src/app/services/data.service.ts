@@ -18,4 +18,8 @@ export class DataService {
 	getData(id: number): Observable<FullData> {
 		return this.apiService.getApiData(id);
 	}
+
+	editDataById(id: number, description: string): Observable<any> {
+		return this.apiService.editDataById(id, description).switchMap(() => this.getData(id));
+	}
 }

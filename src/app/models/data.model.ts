@@ -9,3 +9,8 @@ export interface SimpleData {
 	id: number;
 	title: string;
 }
+
+export interface DataFormModel {
+	dataValue: number;
+	subGroup: { newDescription: string };
+}
