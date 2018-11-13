@@ -1,14 +1,27 @@
 import { AppPage } from './app.po';
 
-describe('test2 App', () => {
-  let page: AppPage;
+describe('Global e2e App', () => {
+    let page: AppPage;
 
-  beforeEach(() => {
-    page = new AppPage();
-  });
+    describe('home page', () => {
+        beforeEach(() => {
+            page = new AppPage();
+            page.navigateTo();
+        });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
-  });
+        it('should display the dropdown form', () => {
+            const form = page.getForm();
+            const select = page.getFormSelect();
+            const options = page.getFormSelectOptions();
+
+            expect(form.isElementPresent(select)).toBeTruthy();
+            expect(options.count).toBe(3);
+            expect
+        });
+    });
+
+    it('should display welcome message', () => {
+        page.navigateTo();
+        expect(page.getParagraphText()).toEqual('Welcome to app!');
+    });
 });
