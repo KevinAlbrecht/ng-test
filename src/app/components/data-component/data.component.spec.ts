@@ -6,7 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 describe('DataComponent', () => {
 	let component: DataComponent;
 	let fixture: ComponentFixture<DataComponent>;
-	const songName = 'Partir un jour';
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
@@ -20,6 +19,10 @@ describe('DataComponent', () => {
 		fixture = TestBed.createComponent(DataComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
+	});
+
+	it('should create the component', () => {
+		expect(component).toBeTruthy();
 	});
 
 	it('should create the component', () => {

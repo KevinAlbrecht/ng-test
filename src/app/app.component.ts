@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.datas$ = this.dataService.getDatas();
+		this.datas$ = this.dataService.getDatas().first();
 		this.dataFormGroup.controls.dataValue.valueChanges
 			.switchMap(selectedId => this.dataService.getData(+selectedId))
 			.subscribe((value) => {
@@ -60,5 +60,9 @@ export class AppComponent implements OnInit {
 					title: value.title
 				};
 			});
+	}
+
+	onSetAsDraft(reason: string) {
+		console.log(reason);
 	}
 }
